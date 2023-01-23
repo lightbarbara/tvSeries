@@ -6,9 +6,9 @@ import { validateUserDoesntHaveSeries, validateUserHasSeries, validateUserSeries
 
 const router = Router()
 
-router.post('/watch/:id', validateAuth, validateSeriesId, validateUserSeries, validateUserDoesntHaveSeries, watchSeries)
-router.get('/yourSeries', validateAuth, getYourSeries)
-router.delete('/delete/:id', validateAuth, validateSeriesId, validateUserHasSeries, deleteSeriesUser)
-router.put('/update/:id', validateAuth, validateSeriesId, validateUserHasSeries, validateUserSeries, updateSeriesUser)
+router.post('/your-series/:id', validateAuth, validateSeriesId, validateUserSeries, validateUserDoesntHaveSeries, watchSeries)
+router.get('/your-series', validateAuth, getYourSeries)
+router.delete('/your-series/:id', validateAuth, validateSeriesId, validateUserHasSeries, deleteSeriesUser)
+router.put('/your-series/:id', validateAuth, validateSeriesId, validateUserHasSeries, validateUserSeries, updateSeriesUser)
 
 export default router
