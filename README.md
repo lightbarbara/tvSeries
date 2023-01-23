@@ -127,7 +127,7 @@ POST /your-series/:id
 
 #### Headers
 ```bash
-config = {
+{
     Authorization: Bearer {token_signIn}
 }
 ```
@@ -140,7 +140,7 @@ GET /your-series
 
 #### Headers
 ```bash
-config = {
+{
     Authorization: Bearer {token_signIn}
 }
 ```
@@ -153,7 +153,7 @@ DELETE /your-series/:id
 
 #### Headers
 ```bash
-config = {
+{
     Authorization: Bearer {token_signIn}
 }
 ```
@@ -174,7 +174,7 @@ PUT /your-series/:id
 
 #### Headers
 ```bash
-config = {
+{
     Authorization: Bearer {token_signIn}
 }
 ```
