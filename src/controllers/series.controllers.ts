@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Series } from "../protocols/series.protocols.js";
-import { createSeriesService, deleteSeriesService, getAllSeriesService, updateSeriesService } from "../services/series.services.js";
+import { createSeriesService, deleteSeriesService, getAllSeriesService, getSeriesServiceByCategoryService, updateSeriesService } from "../services/series.services.js";
 
 export function createSeries(req: Request, res: Response): void {
 
@@ -20,9 +20,17 @@ export function createSeries(req: Request, res: Response): void {
 
 export async function getAllSeries(req: Request, res: Response): Promise<void> {
 
+    let series: Series[]
+    const category = req.query.category as string
+    console.log(category)
+
     try {
 
-        const series = await getAllSeriesService()
+        if (!category) {
+            series = await getAllSeriesService()
+        } else {
+            series = await getSeriesServiceByCategoryService(category)
+        }
 
         res.send(series)
 

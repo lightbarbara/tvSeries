@@ -14,14 +14,18 @@ export function getAllSeriesQuery(): Promise<QueryResult<Series>> {
     return connection.query(`SELECT * FROM series`)
 }
 
+export function getSeriesServiceByCategoryQuery(category: string): Promise<QueryResult<Series>> {
+    return connection.query(`SELECT * FROM series WHERE category LIKE $1`, [`${category}%`])
+}
+
 export function validateSeriesIdQuery(id: number): Promise<QueryResult<Series>> {
     return connection.query(`SELECT * FROM series WHERE id=$1`, [id])
 }
 
-export function deleteSeriesQuery(id: number) {
+export function deleteSeriesQuery(id: number): Promise<QueryResult<Series>> {
     return connection.query(`DELETE FROM series WHERE id=$1`, [id])
 }
 
-export function updateSeriesQuery(series: Series, id: number) {
+export function updateSeriesQuery(series: Series, id: number): Promise<QueryResult<Series>> {
     return connection.query(`UPDATE series SET name=$1, platform=$2, category=$3, "numberOfEpisodes"=$4, "numberOfSeasons"=$5, finished=$6, "lastUpdateOnDb"=$7 WHERE id=$8`, [series.name, series.platform, series.category, series.numberOfEpisodes, series.numberOfSeasons, series.finished, series.lastUpdateOnDb, id])
 }

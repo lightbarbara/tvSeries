@@ -5,11 +5,11 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-export function encryptPassword(password: string) {
+export function encryptPassword(password: string): string {
     return bcrypt.hashSync(password, 5)
 }
 
-export function createToken(user: User) {
+export function createToken(user: User): string {
 
     const secretKey = process.env.SECRET_KEY
 

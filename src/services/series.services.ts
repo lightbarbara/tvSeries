@@ -1,5 +1,5 @@
 import { Series } from "../protocols/series.protocols.js";
-import { createSeriesQuery, getAllSeriesQuery, deleteSeriesQuery, updateSeriesQuery } from "../repositories/series.repositories.js";
+import { createSeriesQuery, getAllSeriesQuery, deleteSeriesQuery, updateSeriesQuery, getSeriesServiceByCategoryQuery } from "../repositories/series.repositories.js";
 
 export function updateObjectSeries(series: Series): Series {
     series.lastUpdateOnDb = Date()
@@ -18,6 +18,14 @@ export async function getAllSeriesService(): Promise<Series[]> {
     const { rows } = await getAllSeriesQuery()
 
     return rows
+}
+
+export async function getSeriesServiceByCategoryService(category: string) {
+
+    const { rows } = await getSeriesServiceByCategoryQuery(category)
+
+    return rows
+
 }
 
 export async function deleteSeriesService(series: Series): Promise<void> {

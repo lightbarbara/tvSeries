@@ -21,7 +21,7 @@ export async function signUp(req: Request, res: Response): Promise<void> {
 
 }
 
-export async function signIn(req: Request, res: Response): Promise<void> {
+export function signIn(req: Request, res: Response): void {
 
     const user = res.locals.user as User
 

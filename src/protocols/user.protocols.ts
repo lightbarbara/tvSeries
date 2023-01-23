@@ -5,3 +5,14 @@ export type UserSeries = {
     watchedEpisodes: number,
     rating: string
 }
+
+export type YourSeries = {
+    name: string,
+    platform: string,
+    category: string,
+    numberOfEpisodes: number,
+    finished: boolean,
+    lastUpdateOnSeries: string,
+    watchedEpisodes: number,
+    rating: string
+}
