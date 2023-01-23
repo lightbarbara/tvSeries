@@ -3,7 +3,7 @@ import { User } from "../protocols/auth.protocols.js";
 import { createToken, encryptPassword } from "../services/auth.services.js";
 import { signUpQuery } from "../repositories/auth.repositories.js";
 
-export async function signUp(req: Request, res: Response) {
+export async function signUp(req: Request, res: Response): Promise<void> {
 
     const user = res.locals.user as User
 
@@ -21,7 +21,7 @@ export async function signUp(req: Request, res: Response) {
 
 }
 
-export async function signIn(req: Request, res: Response) {
+export async function signIn(req: Request, res: Response): Promise<void> {
 
     const user = res.locals.user as User
 

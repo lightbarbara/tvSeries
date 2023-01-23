@@ -13,3 +13,7 @@ export function signUpQuery(name: string, email: string, password: string): Prom
 export function validateSignInQuery(user: User): Promise<QueryResult<User>> {
     return connection.query(`SELECT * FROM users WHERE email=$1`, [user.email])
 }
+
+export function validateAuthQuery(id: string): Promise<QueryResult<User>> {
+    return connection.query(`SELECT * FROM users WHERE id=$1`, [id])
+}

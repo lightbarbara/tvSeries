@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Series } from "../protocols/series.protocols.js";
 import { createSeriesService, deleteSeriesService, getAllSeriesService, updateSeriesService } from "../services/series.services.js";
 
-export function createSeries(req: Request, res: Response) {
+export function createSeries(req: Request, res: Response): void {
 
     const series = res.locals.series as Series
 
@@ -18,7 +18,7 @@ export function createSeries(req: Request, res: Response) {
 
 }
 
-export async function getAllSeries(req: Request, res: Response) {
+export async function getAllSeries(req: Request, res: Response): Promise<void> {
 
     try {
 
@@ -32,7 +32,7 @@ export async function getAllSeries(req: Request, res: Response) {
 
 }
 
-export function getSeriesById(req: Request, res: Response) {
+export function getSeriesById(req: Request, res: Response): void {
 
     const series = res.locals.series as Series
 
@@ -40,7 +40,7 @@ export function getSeriesById(req: Request, res: Response) {
 
 }
 
-export function deleteSeries(req: Request, res: Response) {
+export function deleteSeries(req: Request, res: Response): void {
 
     const series = res.locals.series as Series
 
@@ -56,7 +56,7 @@ export function deleteSeries(req: Request, res: Response) {
 
 }
 
-export async function updateSeries(req: Request, res: Response) {
+export async function updateSeries(req: Request, res: Response): Promise<void> {
 
     const series = res.locals.series as Series
 
