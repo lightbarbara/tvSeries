@@ -6,4 +6,5 @@ export type Series = {
     numberOfEpisodes: number,
     numberOfSeasons: number,
     finished: boolean,
+    lastUpdateOnDb: string
 }
