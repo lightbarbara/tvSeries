@@ -12,5 +12,3 @@ router.delete('/delete/:id', validateAuth, validateSeriesId, validateUserHasSeri
 router.put('/update/:id', validateAuth, validateSeriesId, validateUserHasSeries, validateUserSeries, updateSeriesUser)
 
 export default router
-
-// DOCUMENTAR ROTAS NO README
