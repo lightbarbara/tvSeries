@@ -4,7 +4,7 @@ import { validateSeriesIdQuery, validateSeriesQuery } from "../repositories/seri
 import { seriesSchema } from "../schemas/series.schemas.js";
 import { updateObjectSeries } from "../services/series.services.js";
 
-export async function validateSeries(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function validateSeries(req: Request, res: Response, next: NextFunction): Promise<Series> {
 
     let series = req.body as Series
 
@@ -44,7 +44,7 @@ export async function validateSeries(req: Request, res: Response, next: NextFunc
 
 }
 
-export async function validateSeriesId(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function validateSeriesId(req: Request, res: Response, next: NextFunction): Promise<Series> {
 
     const id = req.params.id
 

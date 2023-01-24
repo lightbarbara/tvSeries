@@ -8,7 +8,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-export async function validateSignUp(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function validateSignUp(req: Request, res: Response, next: NextFunction): Promise<User> {
 
     const user = req.body as User
 
@@ -39,7 +39,7 @@ export async function validateSignUp(req: Request, res: Response, next: NextFunc
 
 }
 
-export async function validateSignIn(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function validateSignIn(req: Request, res: Response, next: NextFunction): Promise<User> {
 
     const user = req.body as User
 
@@ -77,7 +77,7 @@ export async function validateSignIn(req: Request, res: Response, next: NextFunc
 
 }
 
-export async function validateAuth(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function validateAuth(req: Request, res: Response, next: NextFunction): Promise<User> {
 
     const authorization = req.headers.authorization
 

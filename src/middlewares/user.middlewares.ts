@@ -39,7 +39,7 @@ export function validateUserSeries(req: Request, res: Response, next: NextFuncti
 
 }
 
-export async function validateUserDoesntHaveSeries(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function validateUserDoesntHaveSeries(req: Request, res: Response, next: NextFunction): Promise<UserSeries> {
 
     const user = res.locals.user as User
     const series = res.locals.series as Series
@@ -61,7 +61,7 @@ export async function validateUserDoesntHaveSeries(req: Request, res: Response, 
 
 }
 
-export async function validateUserHasSeries(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function validateUserHasSeries(req: Request, res: Response, next: NextFunction): Promise<UserSeries> {
 
     const user = res.locals.user as User
     const series = res.locals.series as Series
@@ -72,6 +72,11 @@ export async function validateUserHasSeries(req: Request, res: Response, next: N
 
         if (userHasSeries.rows.length > 0) {
             next()
+        }
+
+        if (userHasSeries.rows.length === 0) {
+            res.sendStatus(404)
+            return
         }
 
     } catch (err) {
